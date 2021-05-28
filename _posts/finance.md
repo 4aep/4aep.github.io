@@ -1,0 +1,35 @@
+---
+layout: post
+description: This is a post on My Blog about agile frameworks.
+date: 2021-05-27 08:35:29
+categories: book-reviews finance
+---
+
+A survey of results on the topic, with a emphasis on the most practical.
+Note of course, these are just the ones I've read, there are obviously other
+amazing finance books but I've not read them.
+
+the list is:
+
+- 4 Pillars of Investing (Bernstein 2002)
+- Ivy Portfolio (Faber 2009)
+- Global Asset Allocation (Faber 2015)
+- Simple Path to Wealth (Collin 2016)
+- Simple Path to Wealth (Collin 2016)
+- Index Funds: The 12-step Program for Active Investors (Hebner 2007)
+- Guru Investor (Forehand, Reese 2009)
+- The Misbehavior of Markets (Mandelbrot 2004)
+- Millionaire Next Door (Stanley 1996)
+- Early Retirement Extreme (Fisker 2010)
+- Tightwad Gazette (Dacyczyn 1992)
+
+In regard to what is most important in understand and getting some
+benefits from finance I would say Mandelbrot if you want to understand
+the general field of finance and Faber if you want a good portfolio. All
+were valuable in my understanding of it.
+
+# 4 pillars of investing
+
+This is a classic book on finance that lays out all the essential details pretty
+well. I particularly like the section on risk and how it historically relates to
+different assets like ships during the age of exploration.
