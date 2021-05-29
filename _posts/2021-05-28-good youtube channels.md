@@ -18,5 +18,7 @@ categories: music social-media
 - [Elshay Yehezkel](https://www.youtube.com/channel/UCMa5tZ6supZ40A0gH1ysCrg/videos) Awesome Italian music.
 - [Nicolás Guzmán](https://www.youtube.com/channel/UC10ffUrAubaEi2iwDRsmdbg/videos) Ecletic and extremly wonderful.
 - [Ricardo Maraña](https://www.youtube.com/c/RicardoMara%C3%B1a/videos) Mainly easy listening.
+- [off1k](https://www.youtube.com/user/off1k/videos) Amiga tracker music
+- [Niko's 8BitStereo](https://www.youtube.com/c/Wiiguy309/videos) All NES music, wonderful if you love chiptunes.
 
 The only problem is that it is kinda difficult to download and channels can be deleted. Still you can live without Spotify.
