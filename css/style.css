@@ -2,14 +2,42 @@ body {
     background-color: #fffff8;
     color: #111;
 }
-a { 
-    text-decoration: none;
+
+a {
     color: teal;
+    text-decoration: none;
 }
+
+a:link-visited {
+    color: teal;
+    text-decoration: none;
+}
+
 .feed {
     color: maroon;
 }
 
 ul>li {
     list-style: "✧";   
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.625em;
+}
+
+h3, .subtitle {
+    font-size: 1.125em;
+}
+
+pre {
+    font-family: "Monospace"
 }
