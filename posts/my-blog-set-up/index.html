@@ -1,0 +1,64 @@
+<!doctype html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width"><title>Emacs is the best blogging system | Notes on Technology</title><script type=module>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/littlefoot.css></head><body><header><h2 class=author>Orqea's blog</h2><h1><span class=title>Emacs is the best blogging system</span></h1><h2 class=date>2021/05/12</h2></header><nav id=TableOfContents><ul><li><a href=#summary>summary</a></li><li><a href=#a-system-built-around-emacs>A system built around Emacs</a></li><li><a href=#the-integration-of-all-my-writing>the integration of all my writing</a></li><li><a href=#the-blogging-packages>the blogging packages</a><ul><li><a href=#conclusion>conclusion</a></li></ul></li></ul></nav><p>I re-built my blog and have a quite comfortable workflow.</p><h2 id=summary>summary</h2><figure><img src=/ox-hugo/emacs-for-blogging.png></figure><h2 id=a-system-built-around-emacs>A system built around Emacs</h2><p>The main components on my system is <a href=https://jblevins.org/projects/deft/>deft</a> and <a href=https://ox-hugo.scripter.co/>ox-hugo</a>. Deft is an
+interface for my notes, blog-posts etc and ox-hugo is how I published
+them.</p><h2 id=the-integration-of-all-my-writing>the integration of all my writing</h2><figure><img src=/ox-hugo/blog-setup.png></figure><p>All my notes are private, and they are totally uninhibited, I write
+about speculative stuff, taboo stuff, personal stuff and unfinished
+notes of science / philsophy / history and fiction. I also annotate
+and scrape stuff from the web. I use <a href=https://beepb00p.xyz/grasp.html>grasp</a> due to the ease of setting
+it up but you might prefer using <a href=https://github.com/alphapapa/org-protocol-capture-html>org-protcol-capture-html</a> since it
+preserves the html formatting (I recall <a href=https://en.wikipedia.org/wiki/Hypothes.is>hypothes.is</a> not being able to
+do that). I easily got it set up on my desktop linux system in like 10
+minutes but for some reason I can&rsquo;t on my laptop, I don&rsquo;t know why?</p><p>I use <strong>edit-server.el</strong> to write comments and text on the web, add this snippet
+to your dot emacs to be able to save comments, this means everything I
+write on the internet is saved, nothing is lost, my notes,
+annotations, comments, blog-posts it is all saved on my computer, and
+better yet in one directory (~/private-notes), zip it (maybe also
+encrypt it) and upload it to the cloud for a simple back-up.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-emacs-lisp data-lang=emacs-lisp><span style=color:#75715e>; https://aaron.baugher.biz/post/org-mode-saving-blog-comments/</span>
+(defun ajb/save-edit-server-buffer ()
+  <span style=color:#e6db74>&#34;Save the edit-server buffer as an org-mode entry via
+</span><span style=color:#e6db74>   org-capture when it is saved with C-c C-c. Should be called
+</span><span style=color:#e6db74>   from edit-server-done-hook.&#34;</span>
+  (when (not (<span style=color:#a6e22e>string-match</span> <span style=color:#e6db74>&#34;edit-server&#34;</span> (<span style=color:#a6e22e>buffer-name</span>)))
+    (<span style=color:#a6e22e>goto-char</span> (<span style=color:#a6e22e>point-min</span>))
+    (<span style=color:#a6e22e>insert</span> (<span style=color:#a6e22e>buffer-name</span>) <span style=color:#e6db74>&#34;\n&#34;</span>)
+    (mark-whole-buffer)
+    (org-capture <span style=color:#66d9ef>nil</span> <span style=color:#e6db74>&#34;e&#34;</span>)
+    (<span style=color:#a6e22e>goto-char</span> (<span style=color:#a6e22e>point-min</span>))
+    (kill-line <span style=color:#ae81ff>1</span>)))
+
+(add-hook <span style=color:#e6db74>&#39;edit-server-done-hook</span> <span style=color:#e6db74>&#39;ajb/save-edit-server-buffer</span>)
+
+<span style=color:#75715e>; capture template:</span>
+<span style=color:#75715e>;(&#34;e&#34; &#34;Edit with Emacs&#34; entry (file+datetree &#34;~/private-notes/comments.org&#34;)</span>
+<span style=color:#75715e>;       &#34;* %U\n%i\n\n&#34; :immediate-finish t)</span>
+</code></pre></div><p>You can also use org-journal if you want to store your diary as well.</p><p>So many blogs have basically only one real post where they talk about
+their blogging system, however since it is neatly integrated with
+notes, annotations, quotes and comments, I have in total probably
+~500 pages+ of original writing. I assure you their will easily be
+more content.</p><h2 id=the-blogging-packages>the blogging packages</h2><p>The 2 best blogging platforms that are best suited for my work flow is
+as mentioned ox-hugo and also <a href=https://github.com/org2blog/org2blog>org2blog</a>, keep in mind however that you
+don&rsquo;t have to monogamous on what you use, since I use org-mode and my
+workflow is so simple. It&rsquo;s basically a matter of copy and paste if I
+wish to switch, probably easier then that.</p><p>The best feature of these packages is that your blog can be one
+file, this means you can have a holistic view of your blog and have it
+easily contained in your notes directory, I don&rsquo;t have to share my
+private notes and make them blog-posts, I want to be able to share for
+example what I know to useful cybersecurity advice or X subject but
+not have to have hundreds of different files of private and public,
+that is not possible with 1 directory.</p><p>Currently I am using ox-hugo due to the fact that I want to use
+<a href=https://gohugo.io/>hugo</a>. I think static site generators better fit my current use-case,
+in that I want free (in cost), customizability and speed.</p><h3 id=conclusion>conclusion</h3><p>Please tell me a alternative blogging workflow that is able to do all
+of that. Emacs is the best tool for blogging.</p><hr><ul><li><span class=date>2021/05/12</span>
+<a href=/posts/against-boomer-hate/>against boomer-hate</a></li><li><span class=date>2021/05/11</span>
+<a href=/posts/stupidity-of-social-media/>Thoughts on social media</a></li><li><span class=date>2021/05/12</span>
+<a href=/posts/my-blog-set-up/>Emacs is the best blogging system</a></li><li><span class=date>2021/05/15</span>
+<a href=/posts/how-to-journal/>how do paper journaling / logging</a></li><li><span class=date>2021/06/09</span>
+<a href=/posts/rss/>why you should use RSS</a></li><li><span class=date>2021/06/09</span>
+<a href=/posts/example/>This is a example page</a></li><li><span class=date>2021/05/31</span>
+<a href=/posts/desktop-setup/>Desktop Setup</a></li><li><span class=date>2021/05/31</span>
+<a href=/posts/tracking-music/>Tracking Music</a></li><li><span class=date>2021/05/31</span>
+<a href=/posts/colophon/>Colophon</a></li><li><span class=date>2021/05/28</span>
+<a href=/posts/good-youtube-channels/>Do you need Spotify? (good YouTube channels)</a></li><li><span class=date>2021/05/27</span>
+<a href=/posts/books-on-finance/>Review of Books on Finance</a></li></ul><footer><h2>about</h2>Write about and mainly interestd in Emacs, PIM and some other things.<ul><li><b><a href=https://github.com/Orqea31199140>Orqea31199140</a></b></li><li><a href=/index.xml><b>RSS/ATOM/Feed</b></a> (work in progress)</li></ul><script src=/js/main.js></script></footer></body></html></body></html>

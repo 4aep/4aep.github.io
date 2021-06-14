@@ -1,75 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-
-@font-face {
-    font-family: "Gesya Monogram";
-    src: url("/css/Gesya Monogram.otf");
-}
-  
-
-body {
-    margin: 0 auto;
-    padding: 0 1rem;
-    max-width: 70rem;
+:root {
+    --main-bg-color: #fff;
+    --header-color: #61342d;
+    --main-body-color :#211425;
+    --link-color: #5d5cd2;
+    --footnote-color: #3b5fa6;
+    --dropcap: #934788;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #282828;
-        color: #ebdbb2;
+@media (prefers-color-scheme: dark) !important{
+    :root {
+        --main-bg-color: black;
+        --main-body-color: white;
+	--header-color: yellow;
+        --footnote-color: blue;
+        --link-color: lightgreen;
+        --link-icon-color: pink;
+        --dropcap-color: darkorange;
     }
 }
 
 body {
-    background-color: #f0eeed;
-    color: #000;
+    background-color: var(--main-bg-color);
+    max-width: 660px;
+    margin: 22px auto 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    line-height: 28px;
 }
 
-* {
-    font-family: 'Lora', serif;
+article header {
+    margin-left: 2rem;
+    line-height: 1.2;
 }
 
-ul>li {
-    list-style: "✦ ";   
+/* Numbering suffix in TOC */
+.toc-section-number:after{
+    content: ". "
+}
+/* Numbering suffix in Body/Content */
+.header-section-number:after{
+    content: ". "
 }
 
-ul li ul li {
-    list-style: "✧ ";   
+header {
+    padding-bottom: 0.5rem;
 }
 
-/*makes sense on a long article*/
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: var(--main-body-color);
+}
+
 #TableOfContents + p:first-letter {
-    color: rgb(154, 132, 167);
+    color: var(--dropcap);
     font-family:"Gesya Monogram";
     font-size: 4.6875em;
-/*    line-height: 3.75em;    */
     padding-top: .25em;
-   /* padding-right: .5em;
-    padding-left: 0.1875em;*/
-  
-    /*
-    padding-top: 4px;
-    padding-right: 8px;
-    padding-left: 3px;
-    */
-}
-/*
-article {
-    padding-left: 1em;
-    padding-right: 1em;
 }
 
-article {
-    width: 45rem;
-    padding-left: 2em;
-    padding-right: 2em;
-    margin: 0 auto;
-}*/
+h1, h2, h3, h4 {
+    color: var(--header-color);
+}
 
-article a[href$=".pdf"]::after {
+a {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-color);
+}
+
+a[href$=".pdf"]::after {
     content: "";
     opacity: 0.85;
 
@@ -87,11 +94,11 @@ article a[href$=".pdf"]::after {
 
     background-color: red;
 }
-article a[href$=".pdf"]:visited::after {
+a[href$=".pdf"]:visited::after {
     background-color: red;
 }
 
-article a[href*="wikipedia.org/wiki/"]::after {
+a[href*="wikipedia.org/wiki/"]::after {
     content: "";
     opacity: 0.85;
 
@@ -109,11 +116,12 @@ article a[href*="wikipedia.org/wiki/"]::after {
 
     background-color: red;
 }
-article a[href*="wikipedia.org/wiki/"]:visited::after {
+
+a[href*="wikipedia.org/wiki/"]:visited::after {
     background-color: red
 }
 
-article a[href*="github.com"]::after {
+a[href*="github.com"]::after {
     content: "";
     opacity: 0.85;
 
@@ -132,12 +140,14 @@ article a[href*="github.com"]::after {
     background-color: red;
 }
 
-article a[href*="github.com"]:visited::after {
+a[href*="github.com"]:visited::after {
     background-color: red;
 }
 
-.littlefoot {
-    --button-active-background-color: #2f2d26 !important;
-    --button-text-color: #fff !important;
-  }
-  
+ul>li {
+    list-style: "✦ ";   
+}
+
+ul li ul li {
+    list-style: "✧ ";   
+}
